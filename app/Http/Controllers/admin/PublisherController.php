@@ -87,6 +87,7 @@ class PublisherController extends Controller
     public function update(Request $request, Publisher $publisher)
     {
         $publisher->update(request()->all());
+        return redirect('admin/');
     }
 
     /**
@@ -97,12 +98,19 @@ class PublisherController extends Controller
      */
     public function destroy(Publisher $publisher)
     {
-        try {
-            $publisher->delete();
-            return 'success';
-        } catch (\Exception $e) {
-            return 'not success';
+        $validated_data=request()->validate(
+            [
+                'delete_id'=>'array'
+            ]
+        );
+        foreach($validated_data as $a){
+            $obj=Publisher::find($a)->first();
+            $obj->delete();
         }
+        return response()->json([
+            'state'=>'success',
+            'message'=>'compeleted'
+        ]);
     }
     private function rules(){
         return [

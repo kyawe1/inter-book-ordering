@@ -13,31 +13,32 @@
 </head>
 
 <body class="h-100">
-<nav class="navbar navbar-light navbar-collapse navbar-expand-lg position-sticky top-0 py-3 bg-info">
-            <div class='container'>
-            <div class="navbar-brand">MAL</div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggler" aria-expanded="false" aria-label="toggle area" aria-controls="toggler">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="toggler">
-                <ul class="navbar-nav ms-auto mb-lg-0 mb-sm-2">
-                    @auth
-                    <li class="nav-item dropdown" class='navbarDropdown'>
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{request()->user()->name}}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="{{route('auth.logout')}}">Logout</a></li>
-                        </ul>
-                    </li>
-                    @endif
-                </ul>
-            </div>
+    <div class="h-100 w-100">
+        <nav class="navbar navbar-light navbar-collapse navbar-expand-lg position-sticky top-0 py-3 bg-info">
+            <div class='container'>
+                <div class="navbar-brand">MAL</div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggler" aria-expanded="false" aria-label="toggle area" aria-controls="toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="toggler">
+                    <ul class="navbar-nav ms-auto mb-lg-0 mb-sm-2">
+                        @auth
+                        <li class="nav-item dropdown" class='navbarDropdown'>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{request()->user()->name}}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{route('auth.logout')}}">Logout</a></li>
+                            </ul>
+                        </li>
+                        @endif
+                    </ul>
+                </div>
             </div>
         </nav>
-    <div class="h-100 w-100">
         <div class="position-fixed start-0 w-25 h-100">
 
             <ul class="nav flex-column h-100 bg-secondary h-100">

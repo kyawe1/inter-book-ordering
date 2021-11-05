@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use App\Models\Pdf_Books;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -43,7 +44,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin/create_forms/bookForm');
+        $ls=Publisher::all();
+        return view('admin/create_forms/bookForm',['list'=>$ls]);
     }
 
     /**
@@ -58,7 +60,7 @@ class BookController extends Controller
         // ddd($validated_data['image']->getClientOriginalName());
         $validated_data['image']=$validated_data['image']->storeAs('/public/coverphotos',$validated_data['image']->getClientOriginalName());
         $validated_data['published_date'] = Carbon::createFromFormat('d/m/Y', $validated_data['published_date']);
-        $validated_data['publish_id'] = 3;
+        
         $obj = new Pdf_Books($validated_data);
         $obj->set_slug();
         $obj->save();
@@ -84,7 +86,8 @@ class BookController extends Controller
      */
     public function edit(Pdf_Books $pdf_Books)
     {
-        return view('admin.create_forms.bookForm', ['obj' => $pdf_Books]);
+        $ls=Publisher::all();
+        return view('admin.create_forms.bookForm', ['obj' => $pdf_Books,'list'=>$ls]);
     }
 
     /**
@@ -97,6 +100,7 @@ class BookController extends Controller
     public function update(Request $request, Pdf_Books $pdf_Books)
     {
         $pdf_Books->update(request()->validate($this->rules()));
+        return redirect('admin/');
     }
 
     /**
@@ -105,14 +109,21 @@ class BookController extends Controller
      * @param  \App\Models\Pdf_Books  $pdf_Books
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pdf_Books $pdf_Books)
+    public function destroy()
     {
-        try {
-            $pdf_Books->delete();
-            return 'success';
-        } catch (\Exception $e) {
-            return 'not success';
+        $validated_data=request()->validate(
+            [
+                'delete_id'=>'array'
+            ]
+        );
+        foreach($validated_data as $a){
+            $obj=Pdf_Books::find($a)->first();
+            $obj->delete();
         }
+        return response()->json([
+            'state'=>'success',
+            'message'=>'compeleted'
+        ]);
     }
     private function rules()
     {
@@ -123,7 +134,8 @@ class BookController extends Controller
             'edition' => 'string|required',
             'Details' => 'string|required|max:400',
             'published_date' => 'string',
-            'image'=>'file|nullable'
+            'image'=>'file|nullable',
+            'publish_id'=>'integer|required'
         ];
     }
 }

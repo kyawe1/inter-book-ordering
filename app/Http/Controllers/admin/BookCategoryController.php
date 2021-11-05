@@ -30,7 +30,7 @@ class BookCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin/create_forms/BookCategoryForm');
+        return view('admin/create_forms/bookCategoryForm');
     }
 
     /**
@@ -78,6 +78,7 @@ class BookCategoryController extends Controller
     public function update(Request $request, Book_Category $book_Category)
     {
         $book_Category->update($this->rules());
+        return redirect('admin/');
     }
 
     /**
@@ -86,14 +87,21 @@ class BookCategoryController extends Controller
      * @param  \App\Models\Book_Category  $book_Category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book_Category $book_Category)
+    public function destroy()
     {
-        try {
-            $book_Category->delete();
-            return 'success';
-        } catch (\Exception $e) {
-            return 'not success';
+        $validated_data=request()->validate(
+            [
+                'delete_id'=>'array'
+            ]
+        );
+        foreach($validated_data as $a){
+            $obj=Book_Category::find($a)->first();
+            $obj->delete();
         }
+        return response()->json([
+            'state'=>'success',
+            'message'=>'compeleted'
+        ]);
     }
     private function rules()
     {

@@ -77,6 +77,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($this->rules());
+        return redirect('admin/');
     }
 
     /**
@@ -85,14 +86,21 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy()
     {
-        try {
-            $category->delete();
-            return 'success';
-        } catch (\Exception $e) {
-            return 'not success';
+        $validated_data=request()->validate(
+            [
+                'delete_id'=>'array'
+            ]
+        );
+        foreach($validated_data as $a){
+            $obj=Category::find($a)->first();
+            $obj->delete();
         }
+        return response()->json([
+            'state'=>'success',
+            'message'=>'compeleted'
+        ]);
     }
     private function rules()
     {

@@ -59,10 +59,10 @@ Route::middleware(['auth'])->name('admin.')->prefix('/admin/')->group(
         Route::get('/publisher/detail/{publisher}',[App\Http\Controllers\admin\PublisherController::class,'detail'])->name('publisher.detail');
         Route::get('/book/detail/{pdf_Books}',[App\Http\Controllers\admin\BookController::class,'detail'])->name('book.detail');
         //end of detail link
-        Route::post('/bookcategory/{book_Category}/delete',[App\Http\Controllers\admin\BookCategoryController::class,'delete'])->name('book_category.delete');
-        Route::post('/category/{category}/delete',[App\Http\Controllers\admin\CategoryController::class,'delete'])->name('category.delete');
-        Route::post('/publisher/{publisher}/delete',[App\Http\Controllers\admin\PublisherController::class,'delete'])->name('publisher.delete');
-        Route::post('/book/{pdf_Books}/delete',[App\Http\Controllers\admin\BookController::class,'delete'])->name('book.delete');
+        Route::post('/bookcategory/delete',[App\Http\Controllers\admin\BookCategoryController::class,'destroy'])->name('book_category.delete');
+        Route::post('/category/delete',[App\Http\Controllers\admin\CategoryController::class,'destroy'])->name('category.delete');
+        Route::post('/publisher/delete',[App\Http\Controllers\admin\PublisherController::class,'destroy'])->name('publisher.delete');
+        Route::post('/book/delete',[App\Http\Controllers\admin\BookController::class,'destroy'])->name('book.delete');
         // end of delete link
         Route::get('/bookcategory/update/{book_Category}',[App\Http\Controllers\admin\BookCategoryController::class,'edit'])->name('book_category.edit');
         Route::get('/category/update/{category}',[App\Http\Controllers\admin\CategoryController::class,'edit'])->name('category.edit');
