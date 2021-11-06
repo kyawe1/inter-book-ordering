@@ -4,7 +4,17 @@
 @endsection
 @section('body')
 
-    <div class='container'>
+    <div class='container mt-2'>
+    <nav class='navbar'>
+        <div>
+            <a href='{{route(Route::currentRouteName())}}/create' class='nav-link'><button class='btn btn-primary'>Create</button></a>
+        </div>
+        <!-- <ul class='navbar-nav ms-auto'>
+            <li class='nav-item'>
+                <button class='btn btn-primary' id='delete'>Delete</button>
+            </li>
+        </ul> -->
+    </nav>
         <table class='w-100 table table-bordered'>
             <tr>
             @foreach($column as $a)

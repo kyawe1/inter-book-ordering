@@ -13,7 +13,7 @@
 </head>
 
 <body class='h-100'>
-    <div class="container-fluid m-0 p-0">
+    <div class="container-fluid m-0 p-0 h-100">
         <nav class="navbar navbar-light navbar-collapse navbar-expand-lg py-3 bg-info">
             <div class='container'>
             <div class="navbar-brand">MAL</div>
@@ -24,13 +24,13 @@
             <div class="collapse navbar-collapse" id="toggler">
                 <ul class="navbar-nav ms-auto mb-lg-0 mb-sm-2">
                     <li class="nav-item">
-                        <a href="{{route('home')}}" class="nav-link {{Route::currentRouteName()!='home' ?: 'active'}}" >Home</a>
+                        <a href="{{route('home')}}" class="nav-link mx-2 h6 {{Route::currentRouteName()!='home' ?: 'active'}}" >Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('list')}}" class="nav-link {{Route::currentRouteName()!='list' ?: 'active'}}">List</a>
+                        <a href="{{route('list')}}" class="nav-link mx-2 h6 {{Route::currentRouteName()!='list' ?: 'active'}}">List</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('borrow-list')}}" class="nav-link {{Route::currentRouteName()!='borrow-list' ?: 'active'}}">Check</a>
+                        <a href="{{route('borrow-list')}}" class="nav-link mx-2 h6 {{Route::currentRouteName()!='borrow-list' ?: 'active'}}">Check</a>
                     </li>
                     @auth
                     <li class="nav-item dropdown" class='navbarDropdown'>
@@ -44,15 +44,17 @@
                     </li>
                     @else
                     <li class="nav-item">
-                        <a href="{{route('auth.login')}}" class="nav-link {{Route::currentRouteName()!='home' ?: 'active'}}">Login</a>
+                        <a href="{{route('auth.login')}}" class="nav-link mx-2 h6 {{Route::currentRouteName()!='auth.login' ?: 'active'}}">Login</a>
                     </li>
                     @endif
                 </ul>
             </div>
             </div>
         </nav>
+        <div class='h-100'>
         @yield('body')
-        <footer class='container-fluid p-0 mt-auto'>
+        </div>
+        <footer class='container-fluid bottom-0 p-0 mt-auto'>
             <div class='p-3 d-lg-flex justify-content-between'>
                 <div>
                     <p class='h6'>Created By kyaw zin htet; </p>

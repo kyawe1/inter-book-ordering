@@ -23,42 +23,34 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="toggler">
-                    <ul class="navbar-nav ms-auto mb-lg-0 mb-sm-2">
-                        @auth
-                        <li class="nav-item dropdown" class='navbarDropdown'>
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{request()->user()->name}}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="{{route('auth.logout')}}">Logout</a></li>
-                            </ul>
-                        </li>
-                        @endif
-                    </ul>
-                </div>
+                <ul class="navbar-nav ms-auto mb-lg-0 mb-sm-2">
+                    <li class="nav-item">
+                        You Are Super User and Name is {{request()->user()->name}}
+                    </li>
+                </ul>
+            </div>
             </div>
         </nav>
-        <div class="position-fixed start-0 w-25 h-100">
+        <div class="position-fixed start-0 w-25 h-100 overflow-auto">
 
             <ul class="nav flex-column h-100 bg-secondary h-100">
-                <li class="nav-item">
-                    Dashboard
+                <li class="nav-item p-3 m-2 rounded">
+                    <a href="{{route('admin.home')}}" class='nav-link text-white'>Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    Account
+                <li class="nav-item p-3 m-2 rounded">
+                    <a href="{{route('admin.list_user')}}" class='nav-link text-white'>Account</a>
                 </li>
-                <li class="nav-item">
-                    Book
+                <li class="nav-item p-3 m-2 rounded">
+                    <a href="{{route('admin.book.list')}}" class='nav-link text-white'>Book</a>
                 </li>
-                <li class="nav-item">
-                    Publisher
+                <li class="nav-item p-3 m-2 rounded">
+                    <a href="{{route('admin.publisher.list')}}" class='nav-link text-white'>Publisher</a>
                 </li>
-                <li class="nav-item mb-auto">
-                    Category
+                <li class="nav-item p-3 m-2 rounded" >
+                    <a href="{{route('admin.category.list')}}" class='nav-link text-white'>Category</a>
                 </li>
-                <li class="nav-item">
-                    logout
+                <li class="nav-item p-3 m-2 rounded">
+                    <a href="{{route('auth.logout')}}" class='nav-link text-white'>logout</a>
                 </li>
             </ul>
             </li>
