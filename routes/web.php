@@ -32,8 +32,11 @@ Route::middleware('guest')->name('auth.')->prefix('/auth')->group(function(){
 Route::get('/auth/logout',[App\Http\Controllers\auth\LogoutController::class,'index'])->name('auth.logout')->middleware('auth');
 
 Route::middleware('auth')->group(function(){
-    Route::get('borrow/{p}/store',[App\Http\Controllers\base\BorrowController::class,'store'])->name('store');
-    Route::get('borrow/{b}/remove',[App\Http\Controllers\base\BorrowController::class,'remove'])->name('remove');
+    Route::get('borrow/{p}/create',[App\Http\Controllers\base\BorrowController::class,'create'])->name('create');
+    Route::get('borrow/{p}/soft_delete',[App\Http\Controllers\base\BorrowController::class,'soft_delete'])->name('soft_delete');
+    Route::get('borrow/force_delete',[App\Http\Controllers\base\BorrowController::class,'force_delete'])->name('force_delete');
+    Route::get('borrow/store',[App\Http\Controllers\base\BorrowController::class,'store'])->name('store');
+    Route::get('borrow/{b}/remove',[App\Http\Controllers\base\BorrowController::class,'remove  '])->name('remove');
 });
 
 Route::middleware(['auth'])->name('admin.')->prefix('/admin/')->group(

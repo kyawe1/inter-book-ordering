@@ -8,12 +8,27 @@ Dashboard
     <form method='POST'>
         @csrf
         <div>
-            <label class='form-label' for='category_id'>Category</label>
-            <input type="text" name="category_id" id="category_id" class='form-control-lg' placeholder='Book Name' value='{{$obj->category_id}}'>
+            <select id='book_id' name='book_id'>
+                @foreach($book_list as $b)
+                @if($obj->book === $b)
+                    <option class='form-control-lg' value='{{$b->id}}' selected> {{$b->name}} </option>
+                @else
+                    <option class='form-control-lg' value='{{$b->id}}'> {{$b->name}} </option>
+                @endif
+                @endforeach
+            </select>
         </div>
         <div>
-            <label class='form-label' for='book_id'>Book</label>
-            <input type="text" name="book_id" id="book_id" class='form-control-lg' placeholder='ISBN_Number' value='{{$obj->book_id}}'>
+            <select id='category_id' name='category_id'>
+                @foreach($category_list as $c)
+                @if($obj->category === $c)
+                <option class='form-control-lg' value='{{$c->id}}' selected> {{$c->name}} </option>
+                @else
+                <option class='form-control-lg' value='{{$c->id}}'> {{$c->name}} </option>
+                @endif
+                @endforeach
+
+            </select>
         </div>
         <div><input type="submit" value="Save"></div>
     </form>
@@ -22,12 +37,18 @@ Dashboard
 <form method='POST'>
     @csrf
     <div>
-        <label class='form-label' for='category_id'>Category</label>
-        <input type="text" name="category_id" id="category_id" class='form-control-lg' placeholder='Book Name'>
+        <select id='book_id' name='book_id'>
+            @foreach($book_list as $b)
+            <option class='form-control-lg' value='{{$b->id}}'>{{$b->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div>
-        <label class='form-label' for='book_id'>Book</label>
-        <input type="text" name="book_id" id="book_id" class='form-control-lg' placeholder='ISBN_Number'>
+        <select id='category_id' name='category_id'>
+            @foreach($category_list as $c)
+            <option class='form-control-lg' value='{{$c->id}}'>{{$c->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div><input type="submit" value="Save"></div>
 </form>

@@ -36,7 +36,7 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        return view('admin/create_forms/publisherForm');
+        return view('admin/create_forms/publisherForm',['obj'=>null]);
     }
 
     /**

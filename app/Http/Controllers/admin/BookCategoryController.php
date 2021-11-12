@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book_Category;
+use App\Models\{Book_Category,Pdf_Books,Category};
 use Illuminate\Http\Request;
 
 class BookCategoryController extends Controller
@@ -30,7 +30,9 @@ class BookCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin/create_forms/bookCategoryForm');
+        $book_list=Pdf_Books::all();
+        $category=Category::all();
+        return view('admin/create_forms/bookCategoryForm',['obj'=>null,'book_list'=>$book_list,'category_list'=>$category]);
     }
 
     /**
@@ -44,6 +46,7 @@ class BookCategoryController extends Controller
         $validated_data = request()->validate($this->rules());
         $obj = Book_Category::create($validated_data);
         $obj->save();
+        return redirect('admin/');
     }
 
     /**
@@ -65,7 +68,9 @@ class BookCategoryController extends Controller
      */
     public function edit(Book_Category $book_Category)
     {
-        return view('admin.create_forms.bookcategoryForm', ['obj' => $book_Category]);
+        $book_list=Pdf_Books::all();
+        $category=Category::all();
+        return view('admin/create_forms/bookCategoryForm',['obj'=>$book_Category,'book_list'=>$book_list,'category_list'=>$category]);
     }
 
     /**

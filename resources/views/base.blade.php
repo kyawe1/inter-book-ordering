@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class='h-100'>
+<html lang="en" class=''>
 
 <head>
     <meta charset="UTF-8" />
@@ -12,8 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
-<body class='h-100'>
-    <div class="container-fluid m-0 p-0 h-100">
+<body class=''>
+    <div class="container-fluid m-0 p-0 ">
         <nav class="navbar navbar-light navbar-collapse navbar-expand-lg py-3 bg-info">
             <div class='container'>
             <div class="navbar-brand">MAL</div>

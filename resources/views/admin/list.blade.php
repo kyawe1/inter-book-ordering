@@ -29,7 +29,9 @@ Dashboard
                 <input type='checkbox' name='delete_id' value='{{$l["id"]}}'>
             </td>
             @foreach($column as $a)
-            @if($l[$a]==1)
+            @if(is_int($l[$a]) && $l[$a]!=0)
+            <td><a href='{{route(Route::currentRouteName())}}/update/{{$l["id"]}}' class='text-decoration-none text-black'>{{$l[$a]}}</a></td>
+            @elseif($l[$a]==1)
             <td><a href='{{route(Route::currentRouteName())}}/update/{{$l["id"]}}' class='text-decoration-none text-black'>banned</a></td>
             @elseif ($l[$a]==0)
             <td><a href='{{route(Route::currentRouteName())}}/update/{{$l["id"]}}' class='text-decoration-none text-black'>avaliable</a></td>

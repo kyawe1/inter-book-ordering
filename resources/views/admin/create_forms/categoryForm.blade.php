@@ -5,7 +5,8 @@ Dashboard
 @section('body')
 <div class='container'>
     @if($obj ?? '')
-    <form class='POST'>
+    <form method='POST'>
+        @csrf
         <div>
             <label class='form-label' for='name'>Book Name</label>
             <input type="text" name="name" id="name" class='form-control-lg' placeholder='Book Name' value='{{$obj->name}}'>
@@ -14,7 +15,8 @@ Dashboard
 
     </form>
     @else
-    <form class='POST'>
+    <form method='POST'>
+        @csrf
         <div>
             <label class='form-label' for='name'>Book Name</label>
             <input type="text" name="name" id="name" class='form-control-lg' placeholder='Book Name'>

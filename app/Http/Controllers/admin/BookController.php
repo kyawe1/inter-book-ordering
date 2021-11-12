@@ -45,7 +45,7 @@ class BookController extends Controller
     public function create()
     {
         $ls=Publisher::all();
-        return view('admin/create_forms/bookForm',['list'=>$ls]);
+        return view('admin/create_forms/bookForm',['list'=>$ls,'obj'=>null]);
     }
 
     /**

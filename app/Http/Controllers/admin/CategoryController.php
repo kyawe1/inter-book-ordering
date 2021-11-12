@@ -29,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin/create_form/categoryForm');
+        return view('admin/create_forms/categoryForm',['obj'=>null]);
     }
 
     /**
@@ -43,6 +43,7 @@ class CategoryController extends Controller
         $validated_data = request()->validate($this->rules());
         $obj = Category::create($validated_data);
         $obj->save();
+        return redirect('admin/');
     }
 
     /**

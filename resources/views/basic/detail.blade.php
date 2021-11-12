@@ -15,10 +15,16 @@ Deatil
             <p class="text-black-50">Comedy,Political</p>
             <p>Author : {{$obj->author_name}}</p>
             <p>Publisher : {{$obj->publisher_id}}</p>
+            @if($boo)
             <p class="d-block mb-0">
-                <a href='{{route("store",$obj->id)}}'><button class="btn btn-primary">Make a Order</button></a>
-                <a href='{{route("remove",$obj->id)}}'><button class="btn btn-danger">Cencel</button></a>
+                <a href='{{route("soft_delete",$obj->id)}}'><button class="btn btn-danger">Cencel</button></a>
             </p>
+            @elseif(is_bool($boo))
+            <p class="d-block mb-0">
+                <a href='{{route("create",$obj->id)}}'><button class="btn btn-primary">Make a Order</button></a>
+            </p>
+            
+            @endif
         </div>
     </div>
     <div class="container">
