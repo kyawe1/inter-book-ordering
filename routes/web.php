@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function(){
     Route::get('borrow/{b}/remove',[App\Http\Controllers\base\BorrowController::class,'remove  '])->name('remove');
 });
 
-Route::middleware(['auth'])->name('admin.')->prefix('/admin/')->group(
+Route::middleware(['auth','admin','verified'])->name('admin.')->prefix('/admin/')->group(
     function(){
         Route::get('/', [App\Http\Controllers\admin\HomeController::class,'index'])->name('home');
         Route::get('/bookcategory/create/',[App\Http\Controllers\admin\BookCategoryController::class,'create'])->name('book_category.create');

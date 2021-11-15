@@ -14,7 +14,7 @@ class AddImageColumnToPdfBooksTable extends Migration
     public function up()
     {
         Schema::table('pdf__books', function (Blueprint $table) {
-            $table->string('image');
+            $table->string('image')->nullable();
         });
     }
 

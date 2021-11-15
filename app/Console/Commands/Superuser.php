@@ -49,6 +49,7 @@ class Superuser extends Command
                 $temp->name=$name;
                 $temp->email=$email;
                 $temp->password=$password;
+                $temp->role='admin';
                 $temp->email_verified_at=new DateTime();
                 $temp->setpassword();
                 $temp->save();
