@@ -22,6 +22,6 @@ class LoginController extends Controller
         if (Auth::attempt($validated_data,remember: false)){
             return redirect(route('home'));
         }
-        return back(status: 403);
+        return back();
     }
 }

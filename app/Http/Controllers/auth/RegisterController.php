@@ -28,7 +28,7 @@ class RegisterController extends Controller
         $user=User::create($validated_data);
         $user->setpassword();
         $user->save();
-        UserCreatedEvent::dispatch($user);
+        // UserCreatedEvent::dispatch($user);
         return redirect(route('auth.login'));
     }
 }
