@@ -9,7 +9,7 @@ Dashboard
         @csrf
         <div>
             <label class='form-label' for='name'>Book Name</label>
-            <input type="text" name="name" id="name" class='form-control-lg' placeholder='Book Name' value='{{$obj->name}}'>
+            <input type="text" name="name" id="name" class='form-control' placeholder='Book Name' value='{{$obj->name}}'>
         </div>
         <div><input type="submit" value="Save"></div>
 
@@ -19,7 +19,7 @@ Dashboard
         @csrf
         <div>
             <label class='form-label' for='name'>Book Name</label>
-            <input type="text" name="name" id="name" class='form-control-lg' placeholder='Book Name'>
+            <input type="text" name="name" id="name" class='form-control' placeholder='Book Name'>
         </div>
         <div><input type="submit" value="Save"></div>
 

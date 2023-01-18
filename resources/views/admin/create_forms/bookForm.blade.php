@@ -3,7 +3,7 @@
 Dashboard
 @endsection
 @section('body')
-<div class='container'>
+<div class='container-fluid'>
     {{$obj}}
     @if($obj ?? '')
     <div class='h1 m-1 p-2 text-center'>Update a New Book With New Info</div>
@@ -11,19 +11,19 @@ Dashboard
         @csrf
         <div class='mb-3'>
             <label class='form-label' for='name'>Book Name</label>
-            <input type="text" name="name" id="name" class='form-control-lg' placeholder='Book Name' value='{{$obj->name}}'>
+            <input type="text" name="name" id="name" class='form-control' placeholder='Book Name' value='{{$obj->name}}'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='ISBN_Number'>ISBN_Number</label>
-            <input type="text" name="ISBN_Number" id="ISBN_Number" class='form-control-lg' placeholder='ISBN_Number' value='{{$obj ->ISBN_Number}}'>
+            <input type="text" name="ISBN_Number" id="ISBN_Number" class='form-control' placeholder='ISBN_Number' value='{{$obj ->ISBN_Number}}'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='author_name'>Author Name</label>
-            <input type="text" name="author_name" id="author_name" class='form-control-lg' placeholder='Author Name' value='{{$obj ->author_name}}'>
+            <input type="text" name="author_name" id="author_name" class='form-control' placeholder='Author Name' value='{{$obj ->author_name}}'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='publisher'>Publisher Info</label>
-            <select class='form-control-lg' name='publish_id'>
+            <select class='form-control' name='publish_id'>
                 @foreach($list as $b)
                 @if($obj->publish_id==$b->id)
                 <option class='dropdown-item-text' value='{{$b->id}}' selected>{{$b->name}}</option>
@@ -36,15 +36,15 @@ Dashboard
 
         <div class='mb-3'>
             <label class='form-label' for='publish_date'>Publish Date</label>
-            <input type="text" name="published_date" id="publish_date" class='form-control-lg' placeholder='Publish Date' value='{{$obj ->published_date}}'>
+            <input type="text" name="published_date" id="publish_date" class='form-control' placeholder='Publish Date' value='{{$obj ->published_date}}'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='edition'>Edition</label>
-            <input type="text" name="edition" id="edition" class='form-control-lg' placeholder='Edition' value='{{$obj ->edition}}'>
+            <input type="text" name="edition" id="edition" class='form-control' placeholder='Edition' value='{{$obj ->edition}}'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='Details'>Details</label>
-            <textarea type="text" name="Details" id="Details" class='form-control-lg' placeholder='Details'>{{$obj ->Details}}</textarea>
+            <textarea type="text" name="Details" id="Details" class='form-control' placeholder='Details'>{{$obj ->Details}}</textarea>
         </div>
         <div class='mb-3'>
             <label class='form-label'>Cover Photo</label>
@@ -60,19 +60,19 @@ Dashboard
         @csrf
         <div class='mb-3'>
             <label class='form-label' for='name'>Book Name</label>
-            <input type="text" name="name" id="name" class='form-control-lg' placeholder='Book Name'>
+            <input type="text" name="name" id="name" class='form-control' placeholder='Book Name'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='ISBN_Number'>ISBN_Number</label>
-            <input type="text" name="ISBN_Number" id="ISBN_Number" class='form-control-lg' placeholder='ISBN_Number'>
+            <input type="text" name="ISBN_Number" id="ISBN_Number" class='form-control' placeholder='ISBN_Number'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='author_name'>Author Name</label>
-            <input type="text" name="author_name" id="author_name" class='form-control-lg' placeholder='Author Name'>
+            <input type="text" name="author_name" id="author_name" class='form-control' placeholder='Author Name'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='publisher'>Publisher Info</label>
-            <select class='form-control-lg' class=''>
+            <select class='form-control' class=''>
 
                 @foreach($list as $b)
                 <option class='dropdown-item-text' value='{{$b->id}}'>{{$b->name}}</option>
@@ -85,20 +85,20 @@ Dashboard
         </div>
         <div class='mb-3'>
             <label class='form-label' for='publish_date'>Publish Date</label>
-            <input type="text" name="published_date" id="publish_date" class='form-control-lg' placeholder='Publish Date'>
+            <input type="text" name="published_date" id="publish_date" class='form-control' placeholder='Publish Date'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='edition'>Edition</label>
-            <input type="text" name="edition" id="edition" class='form-control-lg' placeholder='Edition'>
+            <input type="text" name="edition" id="edition" class='form-control' placeholder='Edition'>
         </div>
         <div class='mb-3'>
             <label class='form-label' for='Details'>Details</label>
-            <textarea type="text" name="Details" id="Details" class='form-control-lg' placeholder='Details'></textarea>
+            <textarea type="text" name="Details" id="Details" class='form-control' placeholder='Details'></textarea>
 
         </div>
         <div class='mb-3'>
             <label class='form-label'>Cover Photo</label>
-            <input type="file" name="image" id="image">
+            <input type="file" class='form-control-file' name="image" id="image">
         </div>
         <div class='mb-3'><input type="submit" value="Save"></div>
     </form>

@@ -11,9 +11,9 @@ Dashboard
             <select id='book_id' name='book_id'>
                 @foreach($book_list as $b)
                 @if($obj->book === $b)
-                    <option class='form-control-lg' value='{{$b->id}}' selected> {{$b->name}} </option>
+                    <option class='form-control' value='{{$b->id}}' selected> {{$b->name}} </option>
                 @else
-                    <option class='form-control-lg' value='{{$b->id}}'> {{$b->name}} </option>
+                    <option class='form-control' value='{{$b->id}}'> {{$b->name}} </option>
                 @endif
                 @endforeach
             </select>
@@ -22,9 +22,9 @@ Dashboard
             <select id='category_id' name='category_id'>
                 @foreach($category_list as $c)
                 @if($obj->category === $c)
-                <option class='form-control-lg' value='{{$c->id}}' selected> {{$c->name}} </option>
+                <option class='form-control' value='{{$c->id}}' selected> {{$c->name}} </option>
                 @else
-                <option class='form-control-lg' value='{{$c->id}}'> {{$c->name}} </option>
+                <option class='form-control' value='{{$c->id}}'> {{$c->name}} </option>
                 @endif
                 @endforeach
 
@@ -39,14 +39,14 @@ Dashboard
     <div>
         <select id='book_id' name='book_id'>
             @foreach($book_list as $b)
-            <option class='form-control-lg' value='{{$b->id}}'>{{$b->name}}</option>
+            <option class='form-control' value='{{$b->id}}'>{{$b->name}}</option>
             @endforeach
         </select>
     </div>
     <div>
         <select id='category_id' name='category_id'>
             @foreach($category_list as $c)
-            <option class='form-control-lg' value='{{$c->id}}'>{{$c->name}}</option>
+            <option class='form-control' value='{{$c->id}}'>{{$c->name}}</option>
             @endforeach
         </select>
     </div>
