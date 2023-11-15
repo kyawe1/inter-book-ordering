@@ -13,7 +13,7 @@ class LoginController extends Controller
     }
     function rules(){
         return [
-            'password'=>'required|string|min:8|same:password',
+            'password'=>'required|string|min:8',
             'name'=>'required|string'
         ];
     }
